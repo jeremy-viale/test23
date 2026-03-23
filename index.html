@@ -3,58 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>GUINNESS WORLD RECORDS 06 🏆</title>
+    <title>GUINNESS WORLD DEPARTEMENTAL 06 RECORDS 🏆</title>
     <style>
         body {
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             min-height: 100vh;
             margin: 0;
-            background-color: #002344;
+            background-color: #002344; /* Bleu Guinness Officiel */
             font-family: 'Georgia', serif;
-            overflow-x: hidden;
-        }
-
-        /* Arrière-plan avec la photo */
-        .bg-image {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background-image: url('photo-loutre.png');
-            background-size: cover;
-            background-position: center;
-            filter: brightness(0.6); /* Assombrit pour la lisibilité */
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         /* Style Certificat Guinness Officiel */
         #certificate {
-            background: rgba(255, 255, 255, 0.92);
-            padding: 30px;
-            border: 10px double #D4AF37;
-            box-shadow: 0 0 40px rgba(0,0,0,0.5);
-            max-width: 85%;
+            background-color: white;
+            padding: 40px;
+            border: 15px solid #D4AF37; /* Cadre Doré */
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+            max-width: 650px;
             text-align: center;
             animation: fadeIn 1.2s;
             color: #002344;
+            position: relative;
         }
 
         .gwr-header { 
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             font-weight: bold; 
-            border-bottom: 2px solid #002344; 
-            margin-bottom: 20px;
-            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 3px solid #002344; 
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+        }
+
+        /* Style pour l'image ENTIÈRE */
+        .portrait-img {
+            max-width: 100%; /* S'adapte à la largeur du certificat */
+            height: auto;
+            max-height: 400px; /* Limite la hauteur pour ne pas trop scroller */
+            border-radius: 10px;
+            border: 5px solid #D4AF37;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         .record-text {
             font-size: 1.1rem;
             line-height: 1.6;
-            margin: 20px 0;
+            margin: 25px 0;
             text-align: justify;
         }
 
@@ -62,52 +62,82 @@
             color: #D4AF37;
             font-weight: bold;
             font-size: 1.3rem;
+            text-decoration: underline;
+        }
+
+        .official-seal {
+            font-size: 0.9rem;
+            color: #777;
+            margin-top: 30px;
+            font-style: italic;
         }
 
         .action-btns { 
             display: flex; 
             flex-direction: column; 
-            gap: 10px; 
-            margin-top: 25px; 
+            gap: 12px; 
+            margin-top: 30px; 
         }
 
         button {
-            padding: 15px;
-            font-size: 1.1rem;
+            padding: 18px;
+            font-size: 1.2rem;
             border: none;
             cursor: pointer;
             font-weight: bold;
-            transition: transform 0.2s;
+            transition: transform 0.2s, background-color 0.2s;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        button:active { transform: scale(0.95); }
+        button:active { transform: scale(0.96); }
 
-        #waBtn { background-color: #25D366; color: white; border-radius: 5px; }
-        #callBtn { background-color: #3498db; color: white; border-radius: 5px; }
+        #waBtn { 
+            background-color: #25D366; 
+            color: white; 
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+        }
+        #waBtn:hover { background-color: #1ebd5a; }
 
-        @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+        #callBtn { 
+            background-color: #3498db; 
+            color: white; 
+            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+        }
+        #callBtn:hover { background-color: #2980b9; }
+
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(30px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
     </style>
 </head>
 <body>
 
-    <div class="bg-image"></div>
-
     <div id="certificate">
-        <div class="gwr-header">GUINNESS WORLD RECORDS™ - DEPARTEMENTAL 06</div>
+        <div class="gwr-header">GUINNESS WORLD DEPARTEMENTAL 06 RECORDS™</div>
         
-        <p style="font-weight: bold; letter-spacing: 1px;">OFFICIAL ATTEMPT VERIFIED</p>
+        <p style="font-weight: bold; letter-spacing: 2px; text-transform: uppercase; color: #777;">OFFICIAL CERTIFICATE</p>
+
+        <img src="photo-loutre.png" alt="Laurie en loutre (Photo du Record)" class="portrait-img">
 
         <div class="record-text">
             C'est donc officiel, un exploit ! <br><br>
-            <span class="highlight">Mme Merat Marie</span>, habitant actuellement dans le département des <span class="highlight">Alpes Maritimes</span>, vient de décrocher le titre départemental au Guinness Book départemental 06. <br><br>
-            Elle vient de laisser un <span class="highlight">"vu" de 2 jours entiers</span> à un homme lui aussi habitant le département. C'est donc la première femme à faire cela. <br><br>
-            Pour son courage, nous tenons à lui remettre un trophée dans la semaine, en espérant qu'elle ne laisse pas un "vu" au directeur du Guinness Book. <br><br>
+            Le record du monde départemental pour le <span class="highlight">"Vu" le plus long laissé à un homme habitant le département</span> est détenu par : <br><br>
+            <span class="highlight" style="font-size: 1.8rem;">Mme Merat Marie</span><br><br>
+            Vivant actuellement dans le département des Alpes Maritimes. Elle a établi ce record le 14 Février en laissant un <span class="highlight">"Vu" de 2 jours entiers</span>. C'est la première femme à accomplir cet exploit.<br><br>
             Félicitations Marie !
         </div>
 
+        <div class="official-seal">
+            Homologué par le Directeur des Records du 06<br>
+            Réf: LOUTRE-06-VU-2024
+        </div>
+
         <div class="action-btns">
-            <button id="waBtn" onclick="sendWhatsApp()">Répondre au Guinness Book (WhatsApp) </button>
-            <button id="callBtn" onclick="callJesus()">Appeler le directeur du record 📞</button>
+            <button id="waBtn" onclick="sendWhatsApp()">Accepter le Trophée (WhatsApp)</button>
+            <button id="callBtn" onclick="callJesus()">Appeler le Directeur du Record 📞</button>
         </div>
     </div>
 
