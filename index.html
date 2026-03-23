@@ -174,8 +174,7 @@
         </div>
 
         <div class="action-btns">
-            <button id="waBtn" onclick="sendWhatsApp()">Accepter le Trophée 🏆</button>
-            <button id="callBtn" onclick="callJesus()">Contacter le Directeur en cas d'urgence 📞</button>
+            <button id="waBtn" onclick="sendWhatsApp()">Accepter le Trophée ou pas 🏆</button>
         </div>
     </div>
 
@@ -185,10 +184,6 @@
         function sendWhatsApp() {
             const msg = "J'accepte mon trophée Guinness !";
             window.location.href = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
-        }
-
-        function callJesus() {
-            window.location.href = `tel:${numero}`;
         }
     </script>
 </body>
