@@ -12,13 +12,12 @@
             justify-content: center;
             min-height: 100vh;
             margin: 0;
-            background-color: #ffe6e6;
+            background-color: #002344;
             font-family: 'Georgia', serif;
             overflow-x: hidden;
-            transition: all 0.5s;
         }
 
-        /* Arrière-plan avec ta photo */
+        /* Arrière-plan avec la photo */
         .bg-image {
             position: fixed;
             top: 0;
@@ -29,52 +28,18 @@
             background-image: url('photo-loutre.png');
             background-size: cover;
             background-position: center;
-            filter: brightness(0.7); /* Assombrit un peu l'image pour lire le texte */
-            display: none; /* Caché au début */
+            filter: brightness(0.6); /* Assombrit pour la lisibilité */
         }
-
-        #quiz { 
-            text-align: center; 
-            padding: 20px; 
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        h1 { color: #ff4d6d; font-size: 1.6rem; margin-bottom: 30px; max-width: 600px; }
-
-        .buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            position: relative;
-            height: 100px;
-            width: 100%;
-        }
-
-        button {
-            padding: 15px 35px;
-            font-size: 1.1rem;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.2s ease-out;
-        }
-
-        #yesBtn { background-color: #ff4d6d; color: white; z-index: 100; }
-        #noBtn { background-color: #ffffff; color: #ff4d6d; position: fixed; border: 2px solid #ff4d6d; z-index: 50; }
 
         /* Style Certificat Guinness Officiel */
         #certificate {
-            display: none;
             background: rgba(255, 255, 255, 0.92);
             padding: 30px;
             border: 10px double #D4AF37;
             box-shadow: 0 0 40px rgba(0,0,0,0.5);
             max-width: 85%;
             text-align: center;
-            animation: fadeIn 1s;
+            animation: fadeIn 1.2s;
             color: #002344;
         }
 
@@ -99,29 +64,38 @@
             font-size: 1.3rem;
         }
 
-        .action-btns { display: flex; flex-direction: column; gap: 10px; margin-top: 25px; }
+        .action-btns { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 10px; 
+            margin-top: 25px; 
+        }
+
+        button {
+            padding: 15px;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        button:active { transform: scale(0.95); }
+
         #waBtn { background-color: #25D366; color: white; border-radius: 5px; }
         #callBtn { background-color: #3498db; color: white; border-radius: 5px; }
 
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
     </style>
 </head>
 <body>
 
-    <div class="bg-image" id="bg"></div>
-
-    <div id="quiz">
-        <h1>Coucou Marie, avant de continuer... <br> ca te dirait d'être ma petit loutre ? 🌹</h1>
-        <div class="buttons">
-            <button id="yesBtn" onclick="celebrate()">OUI !</button>
-            <button id="noBtn" onmouseover="panic()" ontouchstart="panic()">NON</button>
-        </div>
-    </div>
+    <div class="bg-image"></div>
 
     <div id="certificate">
         <div class="gwr-header">GUINNESS WORLD RECORDS™ - DEPARTEMENTAL 06</div>
         
-        <p>OFFICIAL ATTEMPT VERIFIED</p>
+        <p style="font-weight: bold; letter-spacing: 1px;">OFFICIAL ATTEMPT VERIFIED</p>
 
         <div class="record-text">
             C'est donc officiel, un exploit ! <br><br>
@@ -140,23 +114,8 @@
     <script>
         const numero = "33684218988";
 
-        function panic() {
-            const btn = document.getElementById('noBtn');
-            const maxX = window.innerWidth - btn.offsetWidth - 50;
-            const maxY = window.innerHeight - btn.offsetHeight - 50;
-            btn.style.left = Math.random() * maxX + 'px';
-            btn.style.top = Math.random() * maxY + 'px';
-        }
-
-        function celebrate() {
-            document.getElementById('quiz').style.display = 'none';
-            document.getElementById('bg').style.display = 'block';
-            document.getElementById('certificate').style.display = 'block';
-            document.body.style.backgroundColor = "#002344";
-        }
-
         function sendWhatsApp() {
-            const msg = "Je promets de ne plus laisser de 'vu' au directeur ! ❤️ J'accepte mon trophée !";
+            const msg = "Je promets de ne plus laisser de 'vu' au directeur !";
             window.location.href = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
         }
 
