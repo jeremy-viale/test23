@@ -2,136 +2,136 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>OFFICIAL WORLD RECORD 🦦</title>
     <style>
         body {
-            background-color: #002344; /* Bleu Guinness */
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
             min-height: 100vh;
             margin: 0;
-            font-family: 'Georgia', serif;
+            background-color: #ffe6e6;
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+            transition: background-color 0.5s;
         }
 
-        .certificate-container {
-            background-color: white;
-            padding: 40px;
-            border: 15px solid #D4AF37; /* Cadre Doré */
-            box-shadow: 0 0 50px rgba(0,0,0,0.5);
-            max-width: 600px;
-            text-align: center;
-            position: relative;
-        }
+        #quiz { text-align: center; padding: 20px; }
+        h1 { color: #ff4d6d; font-size: 1.6rem; margin-bottom: 30px; max-width: 600px; }
 
-        .header {
-            color: #002344;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: bold;
-            border-bottom: 2px solid #002344;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-        }
-
-        .gwr-logo {
-            font-size: 40px;
-            margin-bottom: 10px;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin: 10px 0;
-            color: #002344;
-        }
-
-        .record-title {
-            font-size: 1.2rem;
-            font-style: italic;
-            margin: 20px 0;
-            color: #333;
-        }
-
-        .holder-name {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #D4AF37;
-            text-decoration: underline;
-            margin: 10px 0;
-        }
-
-        .description {
-            line-height: 1.6;
-            color: #444;
-            margin: 20px 0;
-        }
-
-        .official-seal {
-            width: 100px;
-            height: 100px;
-            background-color: #D4AF37;
-            border-radius: 50%;
+        .buttons {
             display: flex;
+            gap: 20px;
             justify-content: center;
-            align-items: center;
-            color: white;
-            font-weight: bold;
-            margin: 20px auto;
-            transform: rotate(-15deg);
-            border: 4px dashed white;
+            position: relative;
+            height: 100px;
+            width: 100%;
         }
 
-        .footer {
-            font-size: 0.8rem;
-            color: #777;
-            margin-top: 30px;
-        }
-
-        .btn-back {
-            margin-top: 20px;
-            background-color: #002344;
-            color: white;
+        button {
+            padding: 15px 35px;
+            font-size: 1.1rem;
             border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
+            border-radius: 50px;
             cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
+            font-weight: bold;
+            transition: all 0.2s ease-out;
+        }
+
+        #yesBtn { background-color: #ff4d6d; color: white; z-index: 100; }
+        #noBtn { background-color: #ffffff; color: #ff4d6d; position: fixed; border: 2px solid #ff4d6d; z-index: 50; }
+
+        /* Style Guinness */
+        #certificate {
+            display: none;
+            background-color: white;
+            padding: 30px;
+            border: 12px solid #D4AF37;
+            box-shadow: 0 0 30px rgba(0,0,0,0.2);
+            max-width: 90%;
+            text-align: center;
+            animation: fadeIn 0.8s;
+            overflow-y: auto;
+            max-height: 90vh;
+        }
+
+        .gwr-header { color: #002344; font-weight: bold; border-bottom: 2px solid #002344; margin-bottom: 15px; }
+        .holder-name { font-size: 1.5rem; color: #D4AF37; font-weight: bold; margin: 10px 0; }
+
+        .action-btns { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+        #waBtn { background-color: #25D366; color: white; }
+        #callBtn { background-color: #3498db; color: white; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Style pour ta photo */
+        .portrait-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            border: 5px solid #D4AF37;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
     </style>
 </head>
 <body>
 
-    <div class="certificate-container">
-        <div class="header">OFFICIAL WORLD RECORD</div>
-        
-        <div class="gwr-logo">🌟</div>
-        
-        <h1>CERTIFICATE</h1>
-        
-        <p class="record-title">The world record for the</p>
-        
-        <p class="holder-name">Most Beautiful Little Otter</p>
-        
-        <p class="record-title">is held by</p>
-        
-        <h2 class="holder-name">Laurie Pignal</h2>
-
-        <div class="description">
-            Ce record a été officiellement homologué le 14 février. <br>
-            Après analyse, il a été prouvé que Laurie possède le sourire le plus contagieux et le titre de "Valentine Officielle de Jésus" pour l'éternité.
+    <div id="quiz">
+        <h1>Coucou, La Saint-Valentin approche... ca te dirait d'être ma petit loutre ? 🌹</h1>
+        <div class="buttons">
+            <button id="yesBtn" onclick="celebrate()">OUI !</button>
+            <button id="noBtn" onmouseover="panic()" ontouchstart="panic()">NON</button>
         </div>
-
-        <div class="official-seal">OFFICIAL<br>SEAL</div>
-
-        <div class="footer">
-            Verified by Guinness World Records™ <br>
-            Ref: LOUTRE-2024-LOVE
-        </div>
-
-        <a href="https://wa.me/33684218988" class="btn-back">Confirmer le record par WhatsApp</a>
     </div>
 
+    <div id="certificate">
+        <div class="gwr-header">GUINNESS WORLD RECORDS™</div>
+        <p>The world record for the</p>
+        <div class="holder-name">Most Beautiful Little Otter</div>
+        <p>is held by</p>
+        <div class="holder-name">Laurie Pignal</div>
+        
+        <img src="photo-loutre.png" alt="Laurie en loutre" class="portrait-img">
+
+        <p style="font-size: 0.9rem; font-style: italic; margin-top: 15px;">
+            "On dit que les blessures se réparent avec le temps, mais moi JESUS, j'ai trouvé une solution, je peux être ton cicalfate..."
+        </p>
+
+        <div class="action-btns">
+            <button id="waBtn" onclick="sendWhatsApp()">Envoyer message à ❤️</button>
+            <button id="callBtn" onclick="callJesus()">Call JESUS pour plus de détails 📞</button>
+        </div>
+    </div>
+
+    <script>
+        const numero = "33684218988";
+        let speed = 2000;
+        let moveInterval;
+
+        function panic() {
+            const btn = document.getElementById('noBtn');
+            const maxX = window.innerWidth - btn.offsetWidth - 50;
+            const maxY = window.innerHeight - btn.offsetHeight - 50;
+            btn.style.left = Math.random() * maxX + 'px';
+            btn.style.top = Math.random() * maxY + 'px';
+        }
+
+        function celebrate() {
+            document.body.style.backgroundColor = "#002344"; // Passage au bleu Guinness
+            document.getElementById('quiz').style.display = 'none';
+            document.getElementById('certificate').style.display = 'block';
+        }
+
+        function sendWhatsApp() {
+            window.location.href = `https://wa.me/${numero}?text=OUI ! J'accepte le record ! ❤️`;
+        }
+
+        function callJesus() {
+            window.location.href = `tel:${numero}`;
+        }
+    </script>
 </body>
 </html>
