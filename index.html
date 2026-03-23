@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>OFFICIAL WORLD RECORD 🦦</title>
+    <title>GUINNESS WORLD RECORDS 06 🏆</title>
     <style>
         body {
             display: flex;
@@ -13,12 +13,34 @@
             min-height: 100vh;
             margin: 0;
             background-color: #ffe6e6;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Georgia', serif;
             overflow-x: hidden;
-            transition: background-color 0.5s;
+            transition: all 0.5s;
         }
 
-        #quiz { text-align: center; padding: 20px; }
+        /* Arrière-plan avec ta photo */
+        .bg-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: url('photo-loutre.png');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.7); /* Assombrit un peu l'image pour lire le texte */
+            display: none; /* Caché au début */
+        }
+
+        #quiz { 
+            text-align: center; 
+            padding: 20px; 
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
         h1 { color: #ff4d6d; font-size: 1.6rem; margin-bottom: 30px; max-width: 600px; }
 
         .buttons {
@@ -43,44 +65,53 @@
         #yesBtn { background-color: #ff4d6d; color: white; z-index: 100; }
         #noBtn { background-color: #ffffff; color: #ff4d6d; position: fixed; border: 2px solid #ff4d6d; z-index: 50; }
 
-        /* Style Guinness */
+        /* Style Certificat Guinness Officiel */
         #certificate {
             display: none;
-            background-color: white;
+            background: rgba(255, 255, 255, 0.92);
             padding: 30px;
-            border: 12px solid #D4AF37;
-            box-shadow: 0 0 30px rgba(0,0,0,0.2);
-            max-width: 90%;
+            border: 10px double #D4AF37;
+            box-shadow: 0 0 40px rgba(0,0,0,0.5);
+            max-width: 85%;
             text-align: center;
-            animation: fadeIn 0.8s;
-            overflow-y: auto;
-            max-height: 90vh;
+            animation: fadeIn 1s;
+            color: #002344;
         }
 
-        .gwr-header { color: #002344; font-weight: bold; border-bottom: 2px solid #002344; margin-bottom: 15px; }
-        .holder-name { font-size: 1.5rem; color: #D4AF37; font-weight: bold; margin: 10px 0; }
+        .gwr-header { 
+            font-size: 1.2rem;
+            font-weight: bold; 
+            border-bottom: 2px solid #002344; 
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
 
-        .action-btns { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
-        #waBtn { background-color: #25D366; color: white; }
-        #callBtn { background-color: #3498db; color: white; }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* Style pour ta photo */
-        .portrait-img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 15px;
-            border: 5px solid #D4AF37;
+        .record-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
             margin: 20px 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            text-align: justify;
         }
+
+        .highlight {
+            color: #D4AF37;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .action-btns { display: flex; flex-direction: column; gap: 10px; margin-top: 25px; }
+        #waBtn { background-color: #25D366; color: white; border-radius: 5px; }
+        #callBtn { background-color: #3498db; color: white; border-radius: 5px; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body>
 
+    <div class="bg-image" id="bg"></div>
+
     <div id="quiz">
-        <h1>Coucou, La Saint-Valentin approche... ca te dirait d'être ma petit loutre ? 🌹</h1>
+        <h1>Coucou Marie, avant de continuer... <br> ca te dirait d'être ma petit loutre ? 🌹</h1>
         <div class="buttons">
             <button id="yesBtn" onclick="celebrate()">OUI !</button>
             <button id="noBtn" onmouseover="panic()" ontouchstart="panic()">NON</button>
@@ -88,28 +119,26 @@
     </div>
 
     <div id="certificate">
-        <div class="gwr-header">GUINNESS WORLD RECORDS™</div>
-        <p>The world record for the</p>
-        <div class="holder-name">Most Beautiful Little Otter</div>
-        <p>is held by</p>
-        <div class="holder-name">Laurie Pignal</div>
+        <div class="gwr-header">GUINNESS WORLD RECORDS™ - DEPARTEMENTAL 06</div>
         
-        <img src="photo-loutre.png" alt="Laurie en loutre" class="portrait-img">
+        <p>OFFICIAL ATTEMPT VERIFIED</p>
 
-        <p style="font-size: 0.9rem; font-style: italic; margin-top: 15px;">
-            "On dit que les blessures se réparent avec le temps, mais moi JESUS, j'ai trouvé une solution, je peux être ton cicalfate..."
-        </p>
+        <div class="record-text">
+            C'est donc officiel, un exploit ! <br><br>
+            <span class="highlight">Mme Merat Marie</span>, habitant actuellement dans le département des <span class="highlight">Alpes Maritimes</span>, vient de décrocher le titre départemental au Guinness Book départemental 06. <br><br>
+            Elle vient de laisser un <span class="highlight">"vu" de 2 jours entiers</span> à un homme lui aussi habitant le département. C'est donc la première femme à faire cela. <br><br>
+            Pour son courage, nous tenons à lui remettre un trophée dans la semaine, en espérant qu'elle ne laisse pas un "vu" au directeur du Guinness Book. <br><br>
+            Félicitations Marie !
+        </div>
 
         <div class="action-btns">
-            <button id="waBtn" onclick="sendWhatsApp()">Envoyer message à ❤️</button>
-            <button id="callBtn" onclick="callJesus()">Call JESUS pour plus de détails 📞</button>
+            <button id="waBtn" onclick="sendWhatsApp()">Répondre au Guinness Book (WhatsApp) </button>
+            <button id="callBtn" onclick="callJesus()">Appeler le directeur du record 📞</button>
         </div>
     </div>
 
     <script>
         const numero = "33684218988";
-        let speed = 2000;
-        let moveInterval;
 
         function panic() {
             const btn = document.getElementById('noBtn');
@@ -120,13 +149,15 @@
         }
 
         function celebrate() {
-            document.body.style.backgroundColor = "#002344"; // Passage au bleu Guinness
             document.getElementById('quiz').style.display = 'none';
+            document.getElementById('bg').style.display = 'block';
             document.getElementById('certificate').style.display = 'block';
+            document.body.style.backgroundColor = "#002344";
         }
 
         function sendWhatsApp() {
-            window.location.href = `https://wa.me/${numero}?text=OUI ! J'accepte le record ! ❤️`;
+            const msg = "Je promets de ne plus laisser de 'vu' au directeur ! ❤️ J'accepte mon trophée !";
+            window.location.href = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
         }
 
         function callJesus() {
